@@ -13,9 +13,25 @@
     <title>Manthankumar Satani - python developer</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous" id="bootstrap-css">
+
     <style type="text/css">
         html * {
             -webkit-font-smoothing: antialiased;
+        }
+
+        .up-li {
+            float: left;
+        }
+
+        #myProgress {
+            width: 100%;
+            background-color: #E0E0E0;
+        }
+
+        #myBar {
+            height: 4px;
+            color: #222;
+            background-color: #14BFF4;
         }
 
         .h6,
@@ -538,7 +554,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#works" role="tab" data-toggle="tab">
+                                    <a class="nav-link" href="#works" role="tab" data-toggle="tab" onclick="move_job_suc()">
                                         <i class="material-icons">palette</i>
                                         Work
                                     </a>
@@ -579,12 +595,72 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane text-center gallery" id="works">
+                    <div class="tab-pane gallery" id="works">
                         <div class="row">
-                            <div class="col-md-12">
-                                <h3>Checkout my profile on UpWork</h3>
-                                <a href="https://www.upwork.com/freelancers/~01fc366cb40b227724" target="_blank">Place
-                                    a Visit</a>
+                            <div class="col-md-12 shadow-sm p-3 mb-5 bg-white rounded" id="upwork_details" onmouseover="hoverbox()"
+                                onmouseout="unhoverbox()" onclick="window.open('https://www.upwork.com/freelancers/~01fc366cb40b227724', '_blank');">
+                                <div class="row">
+                                    <div class="col-md-9 ml-5">
+                                        <div class="pull-left col-md-2">
+                                            <img src="https://instagram.famd1-1.fna.fbcdn.net/vp/d85f02f3434d577a8f72e58311694e0d/5CCC26D8/t51.2885-19/s640x640/33175495_170374063647526_1942580022552297472_n.jpg?_nc_ht=instagram.famd1-1.fna.fbcdn.net"
+                                                alt="Circle Image" class="img-raised  rounded-circle img-fluid">
+                                        </div>
+                                        <div>
+                                            <h2>Manthankumar Satani</h2>
+                                            <h6 class="mt-3">
+                                                <strong>&nbsp;
+                                                    <i class="fa fa-map-marker" aria-hidden="true"> </i>
+                                                    <span itemprop="city">&nbsp;&nbsp; Pansada</span>,
+                                                    <span itemprop="state"> Gujarat</span>,
+                                                    <span itemprop="country">India</span>
+                                                </strong>
+                                            </h6>
+                                            <h4 class="mt-3">Web Scraping, Python Scripting Expert</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="d-none d-sm-block">
+                                            <div>
+                                                <h5><strong>97%</strong></h5>
+                                                <div id="myProgress">
+                                                    <div id="myBar"></div>
+                                                </div>
+                                                <small class="text-muted nowrap">Job Success</small>
+                                            </div>
+                                        </div>
+                                        <div class="m-xs-top ">
+                                            <img src="http://www.creativebeelabs.com/files/images/toprated-sticker.png"
+                                                alt="top rated">
+                                        </div>
+                                    </div>
+                                    <ul class="list-inline text-center col-md-12 mt-2">
+                                        <li class="up-li col-md-3 ">
+                                            <h3>
+                                                <span itemprop="pricerange">$9.75</span>
+                                            </h3>
+                                            <div class="text-muted">Hourly rate</div>
+                                        </li>
+                                        <li class="up-li col-md-3">
+                                            <h3>
+                                                <span itemprop="pricerange">$7k+</span>
+                                            </h3>
+                                            <div class="text-muted">Total earned</div>
+                                        </li>
+                                        <li class="up-li col-md-3">
+                                            <h3>
+                                                <span itemprop="pricerange">58</span>
+                                            </h3>
+                                            <div class="text-muted">Jobs</div>
+                                        </li>
+                                        <li class="up-li col-md-3">
+                                            <h3>
+                                                <span itemprop="pricerange">513</span>
+                                            </h3>
+                                            <div class="text-muted">Hours worked</div>
+                                        </li>
+                                    </ul>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -636,6 +712,26 @@
         crossorigin="anonymous"></script>
 
     <script type="text/javascript">
+
+        function unhoverbox() {
+            document.getElementById("upwork_details").className = "col-md-12 shadow-sm p-3 mb-5 bg-white rounded"
+        }
+        function hoverbox() {
+            document.getElementById("upwork_details").className = "col-md-12 shadow p-3 mb-5 bg-white rounded"
+        }
+        function move_job_suc() {
+            var elem = document.getElementById("myBar");
+            var width = 0;
+            var id = setInterval(frame, 10);
+            function frame() {
+                if (width >= 97) {
+                    clearInterval(id);
+                } else {
+                    width += 1;
+                    elem.style.width = width + '%';
+                }
+            }
+        }
         var big_image;
 
         $(document).ready(function () {
