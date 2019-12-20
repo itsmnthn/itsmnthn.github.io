@@ -1,2 +1,2 @@
-# its-mnthn.github.io
-[Place a visit](https://its-mnthn.github.io)
+# itsmnthn.github.io
+[Place a visit](https://itsmnthn.github.io)
