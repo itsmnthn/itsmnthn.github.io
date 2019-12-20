@@ -7,454 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hey guys, I do development using python such as websites, web scraping scripts, scripts for
     small tasks, scripts to automate browser, data ETL.">
-    <link rel="icon" href="https://scontent.famd1-1.fna.fbcdn.net/v/t1.0-0/p370x247/65298802_2311586225823142_639114455317217280_n.jpg?_nc_cat=102&_nc_oc=AQn5gPZNfndkqAvpcrUdZ1QWaHkWFrQBLIUGDKFKpSdX5fV7DhYKZN2xkVjQqjRuLS-Ic_ZXF82HXQO_zlZKAbYP&_nc_ht=scontent.famd1-1.fna&oh=09a1ecc009b50ff0e5feab751d929858&oe=5D7C21C6">
-    <meta name="keywords" content="python, web developer, web scraping, data scraping, ETL, analysis, cleansing, scrapy, selenium, bootstrap">
+    <link rel="icon"
+        href="https://scontent.famd1-1.fna.fbcdn.net/v/t1.0-0/p370x247/65298802_2311586225823142_639114455317217280_n.jpg?_nc_cat=102&_nc_oc=AQn5gPZNfndkqAvpcrUdZ1QWaHkWFrQBLIUGDKFKpSdX5fV7DhYKZN2xkVjQqjRuLS-Ic_ZXF82HXQO_zlZKAbYP&_nc_ht=scontent.famd1-1.fna&oh=09a1ecc009b50ff0e5feab751d929858&oe=5D7C21C6">
+    <meta name="keywords"
+        content="python, web developer, web scraping, data scraping, ETL, analysis, cleansing, scrapy, selenium, bootstrap">
 
     <title>Manthankumar Satani - python developer</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-        crossorigin="anonymous" id="bootstrap-css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"
+        id="bootstrap-css">
 
-    <style type="text/css">
-        html * {
-            -webkit-font-smoothing: antialiased;
-        }
+    <link rel="stylesheet" href="style.css">
 
-        .up-li {
-            float: left;
-        }
-
-        #myProgress {
-            width: 100%;
-            background-color: #E0E0E0;
-        }
-
-        #myBar {
-            height: 4px;
-            color: #222;
-            background-color: #14BFF4;
-        }
-
-        .h6,
-        h6 {
-            font-size: .75rem !important;
-            font-weight: 500;
-            font-family: Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.5em;
-            text-transform: uppercase;
-        }
-
-        .name h6 {
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        .navbar {
-            border: 0;
-            border-radius: 3px;
-            padding: .625rem 0;
-            margin-bottom: 20px;
-            color: #555;
-            background-color: #fff !important;
-            box-shadow: 0 4px 18px 0 rgba(0, 0, 0, .12), 0 7px 10px -5px rgba(0, 0, 0, .15) !important;
-            z-index: 1000 !important;
-            transition: all 150ms ease 0s;
-
-        }
-
-        .navbar.navbar-transparent {
-            z-index: 1030;
-            background-color: transparent !important;
-            box-shadow: none !important;
-            padding-top: 25px;
-            color: #fff;
-        }
-
-        .navbar .navbar-brand {
-            position: relative;
-            color: inherit;
-            height: 50px;
-            font-size: 1.125rem;
-            line-height: 30px;
-            padding: .625rem 0;
-            font-weight: 300;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .navbar .navbar-nav .nav-item .nav-link:not(.btn) .material-icons {
-            margin-top: -7px;
-            top: 3px;
-            position: relative;
-            margin-right: 3px;
-        }
-
-        .navbar .navbar-nav .nav-item .nav-link .material-icons {
-            font-size: 1.25rem;
-            max-width: 24px;
-            margin-top: -1.1em;
-        }
-
-        .navbar .navbar-nav .nav-item .nav-link .fa,
-        .navbar .navbar-nav .nav-item .nav-link .material-icons {
-            font-size: 1.25rem;
-            max-width: 24px;
-            margin-top: -1.1em;
-        }
-
-        .navbar .navbar-nav .nav-item .nav-link {
-            position: relative;
-            color: inherit;
-            padding: .9375rem;
-            font-weight: 400;
-            font-size: 12px;
-            border-radius: 3px;
-            line-height: 20px;
-        }
-
-        a .material-icons {
-            vertical-align: middle;
-        }
-
-        .fixed-top {
-            position: fixed;
-            z-index: 1030;
-            left: 0;
-            right: 0;
-        }
-
-        .profile-page .page-header {
-            height: 480px;
-            background-position: center;
-        }
-
-        .page-header {
-            height: 100vh;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-            border: 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .header-filter:after,
-        .header-filter:before {
-            position: absolute;
-            z-index: 1;
-            width: 100%;
-            height: 100%;
-            display: block;
-            left: 0;
-            top: 0;
-            content: "";
-        }
-
-        .header-filter::before {
-            background: rgba(0, 0, 0, .5);
-        }
-
-        .main-raised {
-            margin: -60px 30px 0;
-            border-radius: 6px;
-            box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
-        }
-
-        .main {
-            background: #FFF;
-            position: relative;
-            z-index: 3;
-        }
-
-        .profile-page .profile {
-            text-align: center;
-        }
-
-        .profile-page .profile img {
-            max-width: 160px;
-            width: 100%;
-            margin: 0 auto;
-            -webkit-transform: translate3d(0, -50%, 0);
-            -moz-transform: translate3d(0, -50%, 0);
-            -o-transform: translate3d(0, -50%, 0);
-            -ms-transform: translate3d(0, -50%, 0);
-            transform: translate3d(0, -50%, 0);
-        }
-
-        .img-raised {
-            box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2);
-        }
-
-        .rounded-circle {
-            border-radius: 50% !important;
-        }
-
-        .img-fluid,
-        .img-thumbnail {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .title {
-            margin-top: 30px;
-            margin-bottom: 25px;
-            min-height: 32px;
-            color: #3C4858;
-            font-weight: 700;
-            font-family: "Roboto Slab", "Times New Roman", serif;
-        }
-
-        .profile-page .description {
-            margin: 1.071rem auto 0;
-            max-width: 600px;
-            color: #999;
-            font-weight: 300;
-        }
-
-        p {
-            font-size: 14px;
-            margin: 0 0 10px;
-        }
-
-        .profile-page .profile-tabs {
-            margin-top: 4.284rem;
-        }
-
-        .nav-pills,
-        .nav-tabs {
-            border: 0;
-            border-radius: 3px;
-            padding: 0 15px;
-        }
-
-        .nav .nav-item {
-            position: relative;
-            margin: 0 2px;
-        }
-
-        .nav-pills.nav-pills-icons .nav-item .nav-link {
-            border-radius: 4px;
-        }
-
-        .nav-pills .nav-item .nav-link.active {
-            color: #fff;
-            background-color: #9c27b0;
-            box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 13px 24px -11px rgba(156, 39, 176, .6);
-        }
-
-        .nav-pills .nav-item .nav-link {
-            line-height: 24px;
-            font-size: 12px;
-            font-weight: 500;
-            min-width: 100px;
-            color: #555;
-            transition: all .3s;
-            border-radius: 30px;
-            padding: 10px 15px;
-            text-align: center;
-        }
-
-        .nav-pills .nav-item .nav-link:not(.active):hover {
-            background-color: rgba(200, 200, 200, .2);
-        }
-
-
-        .nav-pills .nav-item i {
-            display: block;
-            font-size: 30px;
-            padding: 15px 0;
-        }
-
-        .tab-space {
-            padding: 20px 0 50px;
-        }
-
-        .profile-page .gallery {
-            margin-top: 3.213rem;
-            padding-bottom: 50px;
-        }
-
-        .profile-page .gallery img {
-            width: 100%;
-            margin-bottom: 2.142rem;
-        }
-
-        .profile-page .profile .name {
-            margin-top: -80px;
-        }
-
-        img.rounded {
-            border-radius: 6px !important;
-        }
-
-        .tab-content>.active {
-            display: block;
-        }
-
-        /*buttons*/
-        .btn {
-            position: relative;
-            padding: 12px 30px;
-            margin: .3125rem 1px;
-            font-size: .75rem;
-            font-weight: 400;
-            line-height: 1.428571;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0;
-            border: 0;
-            border-radius: .2rem;
-            outline: 0;
-            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1);
-            will-change: box-shadow, transform;
-        }
-
-        .btn.btn-just-icon {
-            font-size: 20px;
-            height: 41px;
-            min-width: 41px;
-            width: 41px;
-            padding: 0;
-            overflow: hidden;
-            position: relative;
-            line-height: 41px;
-        }
-
-        .btn.btn-just-icon fa {
-            margin-top: 0;
-            position: absolute;
-            width: 100%;
-            transform: none;
-            left: 0;
-            top: 0;
-            height: 100%;
-            line-height: 41px;
-            font-size: 20px;
-        }
-
-        .btn.btn-link {
-            background-color: transparent;
-            color: #999;
-        }
-
-        /* dropdown */
-
-
-
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            z-index: 1000;
-            float: left;
-            min-width: 11rem !important;
-            margin: .125rem 0 0;
-            font-size: 1rem;
-            color: #212529;
-            text-align: left;
-            background-color: #fff;
-            background-clip: padding-box;
-            border-radius: .25rem;
-            transition: transform .3s cubic-bezier(.4, 0, .2, 1), opacity .2s cubic-bezier(.4, 0, .2, 1);
-        }
-
-        .dropdown-menu.show {
-            transition: transform .3s cubic-bezier(.4, 0, .2, 1), opacity .2s cubic-bezier(.4, 0, .2, 1);
-        }
-
-
-        .dropdown-menu .dropdown-item:focus,
-        .dropdown-menu .dropdown-item:hover,
-        .dropdown-menu a:active,
-        .dropdown-menu a:focus,
-        .dropdown-menu a:hover {
-            box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(156, 39, 176, .4);
-            background-color: #9c27b0;
-            color: #FFF;
-        }
-
-        .show .dropdown-toggle:after {
-            transform: rotate(180deg);
-        }
-
-        .dropdown-toggle:after {
-            will-change: transform;
-            transition: transform .15s linear;
-        }
-
-
-        .dropdown-menu .dropdown-item,
-        .dropdown-menu li>a {
-            position: relative;
-            width: auto;
-            display: flex;
-            flex-flow: nowrap;
-            align-items: center;
-            color: #333;
-            font-weight: 400;
-            text-decoration: none;
-            font-size: .8125rem;
-            border-radius: .125rem;
-            margin: 0 .3125rem;
-            transition: all .15s linear;
-            min-width: 7rem;
-            padding: 0.625rem 1.25rem;
-            min-height: 1rem !important;
-            overflow: hidden;
-            line-height: 1.428571;
-            text-overflow: ellipsis;
-            word-wrap: break-word;
-        }
-
-        .dropdown-menu.dropdown-with-icons .dropdown-item {
-            padding: .75rem 1.25rem .75rem .75rem;
-        }
-
-        .dropdown-menu.dropdown-with-icons .dropdown-item .material-icons {
-            vertical-align: middle;
-            font-size: 24px;
-            position: relative;
-            margin-top: -4px;
-            top: 1px;
-            margin-right: 12px;
-            opacity: .5;
-        }
-
-        /* footer */
-
-        footer {
-            margin-top: 10px;
-            color: #555;
-            padding: 25px;
-            font-weight: 300;
-
-        }
-
-        .footer p {
-            margin-bottom: 0;
-            font-size: 14px;
-            margin: 0 0 10px;
-            font-weight: 300;
-        }
-
-        footer p a {
-            color: #555;
-            font-weight: 400;
-        }
-
-        footer p a:hover {
-            color: #9f26aa;
-            text-decoration: none;
-        }
-    </style>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+    <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
         integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
-    <link rel="stylesgeet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+    <link rel="stylesgeet"
+        href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
 </head>
 
 <body class="profile-page">
@@ -463,7 +39,8 @@
         <div class="container">
             <div class="navbar-translate">
                 <a class="navbar-brand" href="">Manthankumar Satani</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     <span class="navbar-toggler-icon"></span>
                     <span class="navbar-toggler-icon"></span>
@@ -493,17 +70,17 @@
                         </a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="https://twitter.com/its_mnthn" target="_blank">
+                        <a class="nav-link" href="https://twitter.com/itsmnthn" target="_blank">
                             <i class="fa fa-twitter"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://www.facebook.com/Mnthn97" target="_blank">
+                        <a class="nav-link" href="https://www.facebook.com/itsmnthns" target="_blank">
                             <i class="fa fa-facebook-square"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://www.instagram.com/its_mnthn" target="_blank">
+                        <a class="nav-link" href="https://www.instagram.com/itsmnthn" target="_blank">
                             <i class="fa fa-instagram"></i>
                         </a>
                     </li>
@@ -512,7 +89,9 @@
         </div>
     </nav>
 
-    <div class="page-header header-filter" data-parallax="true" style="background-image:url('https://instagram.famd1-1.fna.fbcdn.net/vp/1abd57018ea91b597355fefefeca0d30/5D018706/t51.2885-15/e35/26303247_212731872624038_4359163446323838976_n.jpg?_nc_ht=instagram.famd1-1.fna.fbcdn.net');"></div>
+    <div class="page-header header-filter" data-parallax="true"
+        style="background-image:url('img/itsmnthn_cover manthankumar satani.jpg');">
+    </div>
     <div class="main main-raised">
         <div class="profile-content">
             <div class="container">
@@ -520,104 +99,157 @@
                     <div class="col-md-6 ml-auto mr-auto">
                         <div class="profile">
                             <div class="avatar">
-                                <img src="https://media.licdn.com/dms/image/C4E03AQFXyYVXOmh6WA/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=TkDuf73iqVMKDTcfDgJUrtUD_HusqczlArTROwF5_Pk"
-                                    alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                                <img src="img/itsmnthn manthankumar satani.jpg"
+                                    alt="itsmnthn manthankumar satani web developer"
+                                    class="img-raised rounded-circle img-fluid">
                             </div>
                             <div class="name">
                                 <h1 class="title">Manthankumar Satani</h1>
                                 <h6>Developer</h6>
-                                <a href="https://www.upwork.com/freelancers/~01fc366cb40b227724" target="_blank" class="btn btn-just-icon btn-link btn-dribbble"><i
-                                        class="fa fa-user"></i></a>
-                                <a href="https://www.linkedin.com/in/its-mnthn/" class="btn btn-just-icon btn-link btn-linkedin"
-                                    target="_blank"><i class="fa fa-linkedin"></i></a>
-                                <a href="https://in.pinterest.com/its_mnthn/" class="btn btn-just-icon btn-link btn-pinterest"
-                                    target="_blank"><i class="fa fa-pinterest"></i></a>
+                                <a href="https://www.upwork.com/freelancers/~01fc366cb40b227724" target="_blank"
+                                    class="btn btn-just-icon btn-link btn-dribbble"><i class="fa fa-user"></i></a>
+                                <a href="https://www.linkedin.com/in/itsmnthn/"
+                                    class="btn btn-just-icon btn-link btn-linkedin" target="_blank"><i
+                                        class="fa fa-linkedin"></i></a>
+                                <a href="https://in.pinterest.com/itsmnthn/"
+                                    class="btn btn-just-icon btn-link btn-pinterest" target="_blank"><i
+                                        class="fa fa-pinterest"></i></a>
                                 <a href="mailto:mnthnup@gmail.com" class="btn btn-just-icon btn-link btn-email"><i
                                         class="fa fa-envelope"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="description text-center">
-                    <p>How you doing?</p>
+                <div class="description row">
+
+                    <p>Hey!</p>
                     <p>
-I am a freelancer and I work on the automation tasks and web scraping task that can be both personal use and commercial use, I also develop websites and APIs using Django framework of python.
+                        I am a full-time freelancer, and I am working on the automation tasks and web scraping task that
+                        can
+                        be used both personal and commercial, I also develop websites and APIs using Django framework of
+                        python. I'm working on my projects with a team of four people as a full-stack developer using
+                        Django, HTML, CSS, JQuery.
                     </p>
                     <p>
-                    Why/when you should contact me?</p>
-                    <ul><li>
-You are doing some task repeatedly/regularly on any website it can be yours or others and you want computer to finish that task as you do without you with more accuracy and speed.
-                        </li><li>
-You want some listing offline to process or want to build database for big purposes and you have access to it and you are grabbing that by copy pasting there I can release some stress of you.
-                        </li><li>
-You want to build simple website for your self or for your business you are always welcome to discuss the project.
-                        </li><li>
-You want yo build webapps that is going to be big products of yours I will be happy to be part of it.
-                        </li><li>
-You want to learn about web development and the concepts of it or need advice drop me message I will try my best to show you all the paths and help you to determine which you wanna take. </li>
-                    <br><bt>
-                        <h6>For more detail contact me via E-Mail</h6>
+
+                        Note: Currently, I am actively looking for a Job as a Django Developer or a ReactJS Developer I
+                        am
+                        open to receive training before starting the job.
+                    </p>
+                    <p>
+                        Django: I have worked on two projects and three years developing Python Scripts
+                        ReactJS: I have learned basic concepts and uses.
+                    </p>
+                    <p>
+                        Why/when you should contact me?</p>
+                    <ul>
+                        <li>
+                            You are doing some task repeatedly/regularly on any website. It can be yours or a third
+                            party, and you want the computer to finish the job as you do without you with more accuracy
+                            and speed.
+                        </li>
+                        <li>
+                            You want some listing offline to process or want to build a database for significant
+                            purposes, and you have access to it, and you are collecting that by copy-pasting there I can
+                            release some stress off of you.
+                        </li>
+                        <li>
+                            You want to build a simple website for your self or for your business where you showcase
+                            your work and skills; you are always welcome to discuss the project.
+                        </li>
+                        <li>
+                            You want to build a web app that is going to be a great product of yours. I will be happy to
+                            be part of it.
+                        </li>
+                        <li>
+                            You want to learn about web development and the concepts or need advice you can always drop
+                            me a message. I will try my best to help you.
+                        </li>
+                    </ul>
+                    <br>
+                    <br>
+                    <h6>For more detail contact me via E-Mail</h6>
                 </div>
                 <div class="row">
                     <div class="col-md-6 ml-auto mr-auto">
                         <div class="profile-tabs">
                             <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
-                                <!-- <li class="nav-item">
-                                    <a class="nav-link" href="#studio" role="tab" data-toggle="tab">
+                                <li class="nav-item active">
+                                    <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
                                         <i class="material-icons">camera</i>
                                         Studio
                                     </a>
-                                </li> -->
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#works" role="tab" data-toggle="tab" onclick="move_job_suc()">
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link " href="#works" role="tab" data-toggle="tab"
+                                        onclick="move_job_suc()">
                                         <i class="material-icons">palette</i>
                                         Work
                                     </a>
                                 </li>
-                                <!-- <li class="nav-item">
+                                <li class="nav-item d-none">
                                     <a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
                                         <i class="material-icons">favorite</i>
                                         Favorite
                                     </a>
-                                </li> -->
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="tab-content tab-space">
-                    <div class="tab-pane text-center gallery" id="studio">
+                    <div class="tab-pane text-center gallery active" id="studio">
                         <div class="row">
                             <div class="col-md-3 ml-auto">
-                                <img src="https://instagram.famd1-1.fna.fbcdn.net/vp/dbe53507be5ef6e7c49722082cffae97/5CC5425E/t51.2885-15/e35/39088891_1863080877334070_776161441483849728_n.jpg?_nc_ht=instagram.famd1-1.fna.fbcdn.net&se=7&ig_cache_key=MTg0Nzc1ODM5NTA3MjE4MTU4NA==.2"
-                                    class="rounded">
-                                <img src="https://instagram.famd1-1.fna.fbcdn.net/vp/81027a0f6bc9c4d6476a7a681e7bd7c4/5CE26F08/t51.2885-15/e35/35423103_2061126037486597_9066978357618409472_n.jpg?_nc_ht=instagram.famd1-1.fna.fbcdn.net&se=7&ig_cache_key=MTgwNDkxODc5MDM1NDg0NDUyOA==.2"
-                                    class="rounded">
+
+                                <img src="img/dog itsmnthn manthankumar satani.jpeg" class="rounded"
+                                    alt="dog itsmnthn manthankumar satani">
+                                <img src="img/pink flower mobile wallpaper itsmnthn manthankumar satani.jpg"
+                                    alt="pink flower mobile wallpaper itsmnthn manthankumar satani" class="rounded">
+                                <img src="img/light pink flower at sunrise itmnthn manthankumar satani.jpg"
+                                    alt="light pink flower at sunrise itmnthn manthankumar satani" class="rounded">
+                                <img src="img/tree road black and white itsmnthn Manthankumar satani.jpg"
+                                    alt="tree road black and white itsmnthn Manthankumar satani" class="rounded">
                             </div>
                             <div class="col-md-4 mr-auto">
-                                <img src="https://instagram.famd1-1.fna.fbcdn.net/vp/344c91dcd2e7d0e1e76fdb1137d11a03/5CE115ED/t51.2885-15/e35/c236.0.608.608/34052538_1730675510352772_6016675064827609088_n.jpg?_nc_ht=instagram.famd1-1.fna.fbcdn.net&ig_cache_key=MTc5Mzk5NDk2NjM4MTYzODA5MQ==.2.c"
-                                    class="rounded">
-                                <img src="https://instagram.famd1-1.fna.fbcdn.net/vp/008287fc5cc5b0ac240fd03f76ed1cee/5CDCB8F6/t51.2885-15/e35/27576346_1582449378535142_81479627003920384_n.jpg?_nc_ht=instagram.famd1-1.fna.fbcdn.net&se=7&ig_cache_key=MTcxMzg5ODE1NDY1Njc3NzI3OQ==.2"
-                                    class="rounded">
+                                <img src="img/white flower itsmnthn manthankumar satani.jpeg" class="rounded"
+                                    alt="white flower itsmnthn manthankumar satani">
+                                <img src="img/sunset into the wood panasada itsmnthn manthankumar satani.jpeg"
+                                    alt="sunset into the wood panasada itsmnthn manthankumar satani" class="rounded">
+                                <img src="img/sunset at home itsmnthn manthankumar satani.jpg"
+                                    alt="sunset at home itsmnthn manthankumar satani" class="rounded">
+                                <img src="img/sunset at diu itsmnthn satani manthankumar.jpg"
+                                    alt="sunset at diu itsmnthn satani manthankumar" class="rounded">
+                                <img src="img/fog in the air itsmnthn manthankumar satani.jpg"
+                                    alt="fog in the air itsmnthn manthankumar satani" class="rounded">
+                                <img src="img/pink flower green nature photo itsmnthn manthankumar satani.jpeg"
+                                    alt="pink flower green nature photo itsmnthn manthankumar satani" class="rounded">
                             </div>
                             <div class="col-md-5 ml-auto">
-                                <img src="https://instagram.famd1-1.fna.fbcdn.net/vp/4d0e9893c2bc58573d60f618d4232232/5CF81A82/t51.2885-15/e35/32541006_132447597623322_2220499002565066752_n.jpg?_nc_ht=instagram.famd1-1.fna.fbcdn.net&se=7&ig_cache_key=MTc4NjI4MDUyNjY0MDY4ODk5OQ==.2"
-                                    class="rounded">
-                                <img src="https://instagram.famd1-1.fna.fbcdn.net/vp/1abd57018ea91b597355fefefeca0d30/5D018706/t51.2885-15/e35/26303247_212731872624038_4359163446323838976_n.jpg?_nc_ht=instagram.famd1-1.fna.fbcdn.net"
-                                    class="rounded">
-                                <img src="https://instagram.famd1-1.fna.fbcdn.net/vp/39487ea2ab7d86928937889cd9cee371/5CE21448/t51.2885-15/e35/26228189_1985236548398875_4180089298927747072_n.jpg?_nc_ht=instagram.famd1-1.fna.fbcdn.net&se=7&ig_cache_key=MTY5Njk0MTg1MjYxNDYzODc4Ng==.2"
-                                    class="rounded">
+                                <img src="img/panasada_landscape itsmnthn Manthankumar satani.jpeg" class="rounded"
+                                    alt="panasada_landscape itsmnthn Manthankumar satani">
+                                <img src="img/diu fort photo itsmnthn mantankumar satani.jpg"
+                                    alt="diu fort photo itsmnthn mantankumar satani" class="rounded">
+                                <img src="img/diu fort sea photo itsmnthn mantankumar satani.jpg"
+                                    alt="diu fort sea photo itsmnthn mantankumar satani" class="rounded">
+                                <img src="img/building in red light itsmnthn manthankumar satani.jpg"
+                                    alt="building in red light itsmnthn manthankumar satani" class="rounded">
+                                <img src="img/sunflower with green leaf itsmnthn manthankumar satani.jpeg"
+                                    alt="sunflower with green leaf itsmnthn manthankumar satani" class="rounded">
+
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane active gallery" id="works">
+                    <div class="tab-pane  gallery" id="works">
                         <div class="row">
-                            <div class="col-md-12 shadow-sm p-3 mb-5 bg-white rounded" id="upwork_details" onmouseover="hoverbox()"
-                                onmouseout="unhoverbox()" onclick="window.open('https://www.upwork.com/freelancers/~01fc366cb40b227724', '_blank');">
+                            <div class="col-md-12 shadow-sm p-3 mb-5 bg-white rounded" id="upwork_details"
+                                onmouseover="hoverbox()" onmouseout="unhoverbox()"
+                                onclick="window.open('https://www.upwork.com/freelancers/~01fc366cb40b227724', '_blank');">
                                 <div class="row">
                                     <div class="col-md-9 ml-5">
                                         <div class="pull-left col-md-2">
-                                            <img src="https://media.licdn.com/dms/image/C4E03AQFXyYVXOmh6WA/profile-displayphoto-shrink_200_200/0?e=1575504000&v=beta&t=TkDuf73iqVMKDTcfDgJUrtUD_HusqczlArTROwF5_Pk"
+                                            <img src="img/itsmnthn manthankumar satani.jpg"
                                                 alt="Circle Image" class="img-raised  rounded-circle img-fluid">
                                         </div>
                                         <div>
@@ -630,13 +262,13 @@ You want to learn about web development and the concepts of it or need advice dr
                                                     <span itemprop="country">India</span>
                                                 </strong>
                                             </h6>
-                                            <h4 class="mt-3">Web Scraping, Python Scripting Expert</h4>
+                                            <h4 class="mt-3">Python: Web Scraping, Scripting, Full-Stack Developer</h4>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="d-none d-sm-block">
                                             <div>
-                                                <h5><strong>97%</strong></h5>
+                                                <h5><strong>98%</strong></h5>
                                                 <div id="myProgress">
                                                     <div id="myBar"></div>
                                                 </div>
@@ -663,13 +295,13 @@ You want to learn about web development and the concepts of it or need advice dr
                                         </li>
                                         <li class="up-li col-md-3">
                                             <h3>
-                                                <span itemprop="pricerange">70</span>
+                                                <span itemprop="pricerange">74</span>
                                             </h3>
                                             <div class="text-muted">Jobs</div>
                                         </li>
                                         <li class="up-li col-md-3">
                                             <h3>
-                                                <span itemprop="pricerange">548</span>
+                                                <span itemprop="pricerange">553</span>
                                             </h3>
                                             <div class="text-muted">Hours worked</div>
                                         </li>
@@ -716,14 +348,17 @@ You want to learn about web development and the concepts of it or need advice dr
         <p>Made with <a href="https://demos.creative-tim.com/material-kit/index.html" target="_blank">Material Kit</a>
             by manthankumar satani</p>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
         crossorigin="anonymous"></script>
 
     <!-- <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
         crossorigin="anonymous"></script> -->
-    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+        integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
         crossorigin="anonymous"></script>
 
     <script type="text/javascript">
