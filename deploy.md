@@ -514,3 +514,63 @@ sudo systemctl restart emperor.uwsgi.service
 sudo systemctl restart nginx
 
 ```
+
+
+**Setup OS Before running above scripts**
+```bash
+#!/bin/bash
+
+# Python version is 3
+# Prerequisite standard packages. If any of these are missing,
+# script will attempt to install it. If installation fails, it will abort.
+
+apt-get update
+apt-get upgrade
+
+PIP="pip3"
+LINUX_PREREQ=('git' 'snapd' 'build-essential' 'python3-dev' 'python3-pip' 'python3-venv' 'gcc' 'nginx' 'libpq-dev' )
+PYTHON_PREREQ=('uwsgi' 'supervisor')
+
+# Test prerequisites
+echo
+echo "***********************************************"
+echo "Checking if required packages are installed..."
+echo "***********************************************"
+echo
+declare -a MISSING
+for pkg in "${LINUX_PREREQ[@]}"
+    do
+        echo "Installing '$pkg'..."
+        apt-get -y install $pkg
+        if [ $? -ne 0 ]; then
+            echo "Error installing system package '$pkg'"
+            exit 1
+        fi
+    done
+
+for ppkg in "${PYTHON_PREREQ[@]}"
+    do
+        echo "Installing Python package '$ppkg'..."
+        $PIP install $ppkg
+        if [ $? -ne 0 ]; then
+            echo "Error installing python package '$ppkg'"
+            exit 1
+        fi
+    done
+
+if [ ${#MISSING[@]} -ne 0 ]; then
+    echo "Following required packages are missing, please install them first."
+    echo ${MISSING[*]}
+    exit 1
+fi
+
+# Certbot
+snap install core
+snap refresh core
+snap install --classic certbot
+ln -s /snap/bin/certbot /usr/bin/certbot
+
+echo "All required packages have been installed!"
+
+```
+
