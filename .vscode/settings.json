@@ -1,0 +1,15 @@
+{
+  // typescript
+  "typescript.experimental.useTsgo": true,
+
+  // editor
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.oxc": "always"
+  },
+
+  // extensions
+  "oxc.typeAware": true,
+  "cSpell.words": ["Buidling", "itsmnthn", "Nuxt", "oxfmt", "oxlint", "tsgolint", "unhead"]
+}

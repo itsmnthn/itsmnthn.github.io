@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #5956e9;
+  --color-gray_alabaster: #e1e1df;
+  --color-white_smoke: #f4f4f3;
+  --font-heading: "Sora", "Manrope", sans-serif;
+  --font-body: "Manrope", "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-script: "Snell Roundhand", "Brush Script MT", "Segoe Script", "Apple Chancery", cursive;
+}
+
+html {
+  background-color: var(--color-gray_alabaster);
+}
+
+.blog-card-number {
+  @apply font-script text-3xl italic tracking-wide;
+  line-height: 0.92;
+}
+
+button {
+  @apply cursor-pointer transition-colors duration-200;
+}
+
+@layer utilities {
+  .flex-ic {
+    @apply flex items-center;
+  }
+  .flex-jc {
+    @apply flex justify-center;
+  }
+  .i-flex-ic {
+    @apply inline-flex items-center;
+  }
+  .i-flex-jc {
+    @apply inline-flex justify-center;
+  }
+  .i-flex-ic-jc {
+    @apply inline-flex items-center justify-center;
+  }
+
+  .flex-ic-jc {
+    @apply flex items-center justify-center;
+  }
+  .flex-ic-sb {
+    @apply flex items-center justify-between;
+  }
+  .flex-ic-se {
+    @apply flex items-center justify-end;
+  }
+  .flex-ic-sa {
+    @apply flex items-center justify-start;
+  }
+}
+
+@layer components {
+  .btn,
+  .btn-primary,
+  .btn-secondary {
+    @apply cursor-pointer transition-colors duration-200;
+  }
+
+  /* size variants */
+  /* .btn-sm {
+    @apply px-2 py-0.5;
+  }
+
+  .btn .btn-md {
+    @apply px-3 py-1;
+  }
+
+  .btn-lg {
+    @apply px-4 py-2;
+  }
+
+  .btn-xl {
+    @apply px-6 py-3;
+  } */
+
+  /* color variants */
+  .btn-primary {
+    @apply bg-primary text-white;
+  }
+
+  .btn-secondary {
+    @apply bg-zinc-900 text-white;
+
+    @variant hover {
+      @apply bg-zinc-900/80;
+    }
+  }
+
+  .btn-secondary-2 {
+    @apply bg-white_smoke text-zinc-900 border border-zinc-300/95;
+
+    @variant hover {
+      @apply bg-gray_alabaster/80 border border-white_smoke;
+    }
+  }
+}
