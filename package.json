@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.18",
-    "@typescript/native-preview": "*",
+    "@typescript/native-preview": "latest",
     "oxfmt": "^0.32.0",
     "oxlint": "^1.47.0",
     "oxlint-tsgolint": "^0.12.2",

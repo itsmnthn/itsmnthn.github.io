@@ -31,7 +31,7 @@ importers:
         specifier: ^4.1.18
         version: 4.1.18(vite@7.3.1(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(yaml@2.8.2))
       '@typescript/native-preview':
-        specifier: '*'
+        specifier: latest
         version: 7.0.0-dev.20260214.1
       oxfmt:
         specifier: ^0.32.0
