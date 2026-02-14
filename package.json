@@ -13,25 +13,24 @@
     "fmt:check": "oxfmt --check"
   },
   "dependencies": {
-    "@nuxt/content": "^3.11.0",
-    "@nuxt/fonts": "0.13.0",
+    "@nuxt/content": "^3.11.2",
+    "@nuxt/fonts": "0.14.0",
     "@nuxt/hints": "1.0.0-alpha.6",
     "@nuxt/icon": "2.2.1",
     "@nuxt/scripts": "0.13.2",
-    "@unhead/vue": "^2.1.4",
     "nuxt": "^4.3.1"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "@typescript/native-preview": "*",
-    "oxfmt": "^0.31.0",
-    "oxlint": "^1.46.0",
-    "oxlint-tsgolint": "^0.12.0",
+    "oxfmt": "^0.32.0",
+    "oxlint": "^1.47.0",
+    "oxlint-tsgolint": "^0.12.2",
     "tailwindcss": "^4.1.18"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs}": "pnpm run lint",
     "*": "oxfmt --no-error-on-unmatched-pattern"
   },
-  "packageManager": "pnpm@10.29.2"
+  "packageManager": "pnpm@10.29.3"
 }

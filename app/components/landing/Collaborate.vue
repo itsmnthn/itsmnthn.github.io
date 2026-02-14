@@ -1,22 +1,22 @@
 <script setup lang="ts">
-  import { LINKEDIN_URL, X_URL } from '~/utils/constants';
-  const currentYear = new Date().getFullYear();
+import { LINKEDIN_URL, X_URL } from "~/utils/constants";
+const currentYear = new Date().getFullYear();
 
-  // List of social links with icons and button styles
-  const socialLinks = [
-    {
-      name: 'LinkedIn',
-      url: LINKEDIN_URL,
-      icon: 'mdi:linkedin',
-      btnClass: 'btn btn-secondary'
-    },
-    {
-      name: 'Twitter',
-      url: X_URL,
-      icon: 'mdi:twitter',
-      btnClass: 'btn btn-secondary-2'
-    }
-  ];
+// List of social links with icons and button styles
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    url: LINKEDIN_URL,
+    icon: "mdi:linkedin",
+    btnClass: "btn btn-secondary",
+  },
+  {
+    name: "Twitter",
+    url: X_URL,
+    icon: "mdi:twitter",
+    btnClass: "btn btn-secondary-2",
+  },
+];
 </script>
 
 <template>
@@ -31,9 +31,14 @@
       </h2>
 
       <div class="mt-5 mb-22 flex flex-wrap justify-center gap-4 text-sm font-bold tracking-wider">
-        <NuxtLink v-for="(link, i) in socialLinks" :key="link.name" :to="link.url" target="_blank"
+        <NuxtLink
+          v-for="(link, i) in socialLinks"
+          :key="link.name"
+          :to="link.url"
+          target="_blank"
           rel="noopener noreferrer"
-          :class="['i-flex-ic-jc', link.btnClass, 'rounded-full', 'px-6', 'py-2.5', 'no-underline', 'gap-2']">
+          :class="['i-flex-ic-jc', link.btnClass, 'rounded-full', 'px-6', 'py-2.5', 'no-underline', 'gap-2']"
+        >
           <Icon :name="link.icon" class="size-5" />
           {{ link.name }}
         </NuxtLink>

@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-  import { LINKEDIN_URL, X_URL, GITHUB_URL } from '~/utils/constants';
+import { LINKEDIN_URL, X_URL, GITHUB_URL } from "~/utils/constants";
 
-  const socialItems = [
-    { name: "LinkedIn", url: LINKEDIN_URL },
-    { name: "Twitter", url: X_URL },
-    { name: "GitHub", url: GITHUB_URL },
-  ];
+const socialItems = [
+  { name: "LinkedIn", url: LINKEDIN_URL },
+  { name: "Twitter", url: X_URL },
+  { name: "GitHub", url: GITHUB_URL },
+];
 </script>
 
 <template>
@@ -18,5 +18,3 @@
     </template>
   </nav>
 </template>
-
-<style scoped></style>

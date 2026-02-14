@@ -1,17 +1,17 @@
 <script setup lang="ts">
-  const copied = ref(false);
+const copied = ref(false);
 
-  const copySite = async () => {
-    try {
-      await navigator.clipboard.writeText(SITE_URL);
-      copied.value = true;
-      setTimeout(() => {
-        copied.value = false;
-      }, 1300);
-    } catch {
+const copySite = async () => {
+  try {
+    await navigator.clipboard.writeText(SITE_URL);
+    copied.value = true;
+    setTimeout(() => {
       copied.value = false;
-    }
-  };
+    }, 1300);
+  } catch {
+    copied.value = false;
+  }
+};
 </script>
 
 <template>
