@@ -14,7 +14,7 @@ jobs:
       
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        with:
+        # with:
           # Optional: specify a pnpm version to use for consistency with local development
           # version: 10 
 
