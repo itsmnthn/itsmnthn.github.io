@@ -7,6 +7,8 @@
   --font-heading: "Sora", "Manrope", sans-serif;
   --font-body: "Manrope", "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
   --font-script: "Snell Roundhand", "Brush Script MT", "Segoe Script", "Apple Chancery", cursive;
+
+  --breakpoint-xs: 30rem;
 }
 
 html {

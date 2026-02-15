@@ -13,14 +13,9 @@ const companies = [
     class="border border-white_smoke bg-white_smoke px-8 py-10 md:px-16 md:py-24"
     aria-label="Companies I worked with/for"
   >
-    <ul class="grid list-none items-center grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+    <ul class="flex flex-wrap list-none items-center gap-4 justify-center lg:justify-between">
       <li v-for="company in companies" :key="company.name">
-        <NuxtLink
-          :to="company.link"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center md:justify-center"
-        >
+        <NuxtLink :to="company.link" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center">
           <img :src="company.img" :alt="company.name" class="h-5 md:h-7 my-auto" />
           <!-- {{ company.name }} -->
         </NuxtLink>

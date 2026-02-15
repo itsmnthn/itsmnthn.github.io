@@ -11,20 +11,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: corepack enable
-      
+
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         # with:
-          # Optional: specify a pnpm version to use for consistency with local development
-          # version: 10 
+        # Optional: specify a pnpm version to use for consistency with local development
+        # version: 10
 
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           # Specify Node.js version, e.g., 24.x, or use a matrix
-          node-version: '24' 
+          node-version: "24"
           # This automatically handles caching of pnpm dependencies
-          cache: 'pnpm'
+          cache: "pnpm"
 
       # Pick your own package manager and build script
       - run: pnpm install
@@ -40,8 +40,8 @@ jobs:
     needs: build
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
     # Deploy to the github_pages environment
     environment:
       name: github-pages
