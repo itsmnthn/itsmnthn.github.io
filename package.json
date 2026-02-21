@@ -10,25 +10,28 @@
     "lint": "oxlint --type-aware",
     "lint:fix": "oxlint --type-aware --fix",
     "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check"
+    "fmt:check": "oxfmt --check",
+    "clean": "rm -rf .output .nuxt .data .cache dist",
+    "cleanup": "pnpm run clean && rm -rf node_modules"
   },
   "dependencies": {
-    "@nuxt/content": "^3.11.2",
+    "@nuxt/content": "3.11.2",
     "@nuxt/fonts": "0.14.0",
-    "@nuxt/hints": "1.0.0-alpha.6",
+    "@nuxt/hints": "1.0.0-alpha.7",
     "@nuxt/icon": "2.2.1",
-    "@nuxtjs/partytown": "^2.0.0",
-    "@nuxtjs/seo": "^3.4.0",
-    "nuxt": "^4.3.1"
+    "@nuxt/image": "2.0.0",
+    "@nuxtjs/partytown": "2.0.0",
+    "@nuxtjs/seo": "3.4.0",
+    "nuxt": "4.3.1"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.18",
+    "@tailwindcss/vite": "4.1.18",
     "@typescript/native-preview": "latest",
     "better-sqlite3": "12.6.2",
-    "oxfmt": "^0.32.0",
-    "oxlint": "^1.47.0",
-    "oxlint-tsgolint": "^0.12.2",
-    "tailwindcss": "^4.1.18"
+    "oxfmt": "0.34.0",
+    "oxlint": "1.49.0",
+    "oxlint-tsgolint": "0.14.2",
+    "tailwindcss": "4.1.18"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs}": "pnpm run lint",

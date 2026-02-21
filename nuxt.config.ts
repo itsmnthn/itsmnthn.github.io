@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "@nuxt/hints",
     "@nuxt/icon",
+    "@nuxt/image",
     "@nuxtjs/partytown",
     "@nuxtjs/seo",
   ],
