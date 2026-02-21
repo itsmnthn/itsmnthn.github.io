@@ -25,6 +25,9 @@
     "nuxt": "4.3.1"
   },
   "devDependencies": {
+    "@iconify-json/lucide": "1.2.92",
+    "@iconify-json/mdi": "1.2.3",
+    "@iconify-json/streamline-freehand": "1.2.1",
     "@tailwindcss/vite": "4.1.18",
     "@typescript/native-preview": "latest",
     "better-sqlite3": "12.6.2",

@@ -14,7 +14,7 @@
     <ul class="flex flex-wrap list-none items-center gap-4 justify-center lg:justify-between">
       <li v-for="company in companies" :key="company.name">
         <NuxtLink :to="company.link" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center">
-          <img :src="company.img" :alt="company.name" class="h-5 md:h-7 my-auto" />
+          <NuxtImg :src="company.img" :alt="company.name" loading="lazy" class="h-5 md:h-7 my-auto" />
           <!-- {{ company.name }} -->
         </NuxtLink>
       </li>

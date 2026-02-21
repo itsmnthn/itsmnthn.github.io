@@ -124,9 +124,10 @@
 
 <template>
   <NuxtLink :to="post.path" :style="linkStyle"
-    class="group relative block h-fit max-h-[32rem] overflow-visible rounded-[2rem] border border-zinc-100 bg-[#fcfcfd] px-4 pb-4 pt-16 shadow-[0_22px_45px_rgba(15,23,42,0.14)] transition-transform duration-300 hover:-translate-y-1 hover:rotate-0">
+    class="group relative block h-fit max-h-128 overflow-visible rounded-4xl border border-zinc-100 bg-[#fcfcfd] px-4 pb-4 pt-16 shadow-[0_22px_45px_rgba(15,23,42,0.14)] transition-transform duration-300 hover:-translate-y-1 hover:rotate-0">
     <span class="pointer-events-none absolute left-1/2 -top-1 z-20 h-[3.6rem] w-[3.6rem] -translate-x-1/2">
-      <img src="/push-pin.png" alt="" aria-hidden="true" class="h-full w-full object-contain" :style="pinImageStyle" />
+      <NuxtImg src="/push-pin.png" alt="" aria-hidden="true" width="192" height="192" loading="lazy"
+        class="h-full w-full object-contain" :style="pinImageStyle" />
     </span>
 
     <div class="rounded-[1.35rem] p-[1.25px]" :style="noteWrapperStyle">
