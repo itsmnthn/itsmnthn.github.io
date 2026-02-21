@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      NUXT_PUBLIC_GA_MEASUREMENT_ID: ${{ vars.NUXT_PUBLIC_GA_MEASUREMENT_ID }} # or secrets.*
     steps:
       - uses: actions/checkout@v4
       - run: corepack enable
