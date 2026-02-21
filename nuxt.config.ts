@@ -22,34 +22,14 @@ export default defineNuxtConfig({
     "@nuxt/hints",
     "@nuxt/icon",
     "@nuxt/image",
-    "@nuxtjs/partytown",
+    "nuxt-gtag",
     "@nuxtjs/seo",
   ],
 
-  partytown: {
-    forward: ["dataLayer.push"],
-  },
-
-  app: {
-    head: {
-      script: gaMeasurementId
-        ? [
-            {
-              src: `https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`,
-              async: true,
-              crossorigin: "anonymous",
-              type: "text/partytown",
-            },
-            {
-              type: "text/partytown",
-              textContent: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${gaMeasurementId}');`,
-            },
-          ]
-        : [],
-    },
+  gtag: {
+    enabled: Boolean(gaMeasurementId),
+    id: gaMeasurementId,
+    initMode: "manual",
   },
 
   site: {
