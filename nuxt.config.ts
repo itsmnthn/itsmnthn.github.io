@@ -10,6 +10,10 @@ export default defineNuxtConfig({
     compatibilityVersion: 5,
   },
 
+  features: {
+    inlineStyles: true,
+  },
+
   css: ["~/assets/css/main.css"],
 
   modules: [
@@ -94,6 +98,8 @@ gtag('config', '${gaMeasurementId}');`,
     },
   },
 
+  // GitHub Pages serves static assets with platform-managed cache headers.
+  // routeRules.headers/publicAssets maxAge changes here won't control production TTL.
   nitro: {
     prerender: {
       routes: ["/", "/sitemap.xml", "/robots.txt"],

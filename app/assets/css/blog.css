@@ -1,0 +1,91 @@
+@reference "./main.css";
+
+@layer components {
+  .blog-markdown {
+    @apply mt-8 text-zinc-800;
+  }
+
+  .blog-markdown h1 {
+    @apply mt-10 mb-4 font-heading text-4xl font-black tracking-tight text-zinc-900;
+  }
+
+  .blog-markdown h2 {
+    @apply mt-9 mb-3 font-heading text-3xl font-bold tracking-tight text-zinc-900;
+  }
+
+  .blog-markdown h3 {
+    @apply mt-8 mb-3 font-heading text-2xl font-bold text-zinc-900;
+  }
+
+  .blog-markdown h4 {
+    @apply mt-7 mb-2 text-xl font-semibold text-zinc-900;
+  }
+
+  .blog-markdown h5 {
+    @apply mt-6 mb-2 text-lg font-semibold text-zinc-900;
+  }
+
+  .blog-markdown h6 {
+    @apply mt-6 mb-2 text-base font-semibold uppercase tracking-wide text-zinc-600;
+  }
+
+  .blog-markdown p {
+    @apply my-4 leading-8 text-[1.03rem];
+  }
+
+  .blog-markdown a {
+    @apply underline decoration-zinc-400 underline-offset-3 transition-colors;
+
+    @variant hover {
+      @apply text-zinc-950 decoration-zinc-950;
+    }
+  }
+
+  .blog-markdown ul {
+    @apply my-4 list-disc pl-6;
+  }
+
+  .blog-markdown ol {
+    @apply my-4 list-decimal pl-6;
+  }
+
+  .blog-markdown li {
+    @apply my-1.5;
+  }
+
+  .blog-markdown blockquote {
+    @apply my-6 border-l-4 border-zinc-300 pl-4 italic text-zinc-700;
+  }
+
+  .blog-markdown hr {
+    @apply my-10 border-zinc-300;
+  }
+
+  .blog-markdown img {
+    @apply my-6 rounded-2xl border border-zinc-200;
+  }
+
+  .blog-markdown code {
+    @apply rounded bg-zinc-900/8 px-1.5 py-0.5 text-[0.95em] text-zinc-900;
+  }
+
+  .blog-markdown pre {
+    @apply my-6 overflow-x-auto rounded-2xl border border-zinc-200 bg-zinc-900 p-4 text-zinc-100;
+  }
+
+  .blog-markdown pre code {
+    @apply bg-transparent p-0 text-inherit;
+  }
+
+  .blog-markdown table {
+    @apply my-6 w-full border-collapse;
+  }
+
+  .blog-markdown th {
+    @apply border border-zinc-300 bg-zinc-100 px-3 py-2 text-left font-semibold;
+  }
+
+  .blog-markdown td {
+    @apply border border-zinc-300 px-3 py-2;
+  }
+}

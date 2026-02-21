@@ -4,12 +4,15 @@
 
     <div class="mt-8 text-center md:mt-16">
       <div class="relative i-flex-ic">
-        <NuxtImg
-          src="/itsmnthn.png"
+        <img
+          src="/itsmnthn-avatar-112.webp"
+          srcset="/itsmnthn-avatar-112.webp 1x, /itsmnthn-avatar-224.webp 2x"
           alt="itsmnthn"
           width="112"
           height="112"
           loading="eager"
+          fetchpriority="high"
+          decoding="async"
           class="size-28 border-3 border-white_smoke rounded-full"
         />
         <!-- <p
