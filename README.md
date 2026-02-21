@@ -20,6 +20,12 @@ yarn install
 bun install
 ```
 
+Set your GA4 Measurement ID before running/building if you want analytics enabled:
+
+```bash
+export NUXT_PUBLIC_GA_MEASUREMENT_ID="G-XXXXXXXXXX"
+```
+
 ## Development Server
 
 Start the development server on `http://localhost:3000`:
