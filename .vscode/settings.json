@@ -13,5 +13,23 @@
   // extensions
   "oxc.enable": true,
   "oxc.typeAware": true,
-  "cSpell.words": ["Buidling", "itsmnthn", "Nuxt", "oxfmt", "oxlint", "tsgolint", "unhead"]
+  "cSpell.words": ["Buidling", "itsmnthn", "Nuxt", "oxfmt", "oxlint", "tsgolint", "unhead"],
+  "[vue]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  }
 }

@@ -25,12 +25,12 @@ const services = [
 
 <template>
   <section class="bg-gray_alabaster px-4 py-8 md:px-5 md:py-24" aria-label="Services">
-    <h3
+    <h2
       class="mx-auto mt-5 text-balance text-center font-heading font-black text-2xl leading-tight tracking-tight md:text-3xl"
     >
       <span class="block">Your vision expertly crafted into reality</span>
       <span class="block text-zinc-900/80">to create impactful results</span>
-    </h3>
+    </h2>
 
     <div class="relative mx-auto max-w-3xl h-px bg-zinc-400/20 my-17">
       <span

@@ -14,11 +14,13 @@ const socialItems = [
       <NuxtLink
         class="i-flex-ic-jc gap-2 text-zinc-700/80 hover:text-zinc-900"
         :to="item.url"
+        :aria-label="item.name"
+        :title="item.name"
         external
         rel="noopener noreferrer"
         target="_blank"
       >
-        <Icon :name="item.icon" class="size-4 inline-block sm:hidden!" />
+        <Icon :name="item.icon" aria-hidden="true" class="size-4 inline-block sm:hidden!" />
         <span class="hidden sm:inline">{{ item.name }}</span>
       </NuxtLink>
       <span v-if="idx !== socialItems.length - 1">/</span>

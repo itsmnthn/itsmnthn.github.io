@@ -4,8 +4,14 @@
 
     <div class="mt-8 text-center md:mt-16">
       <div class="relative i-flex-ic">
-        <NuxtImg src="/itsmnthn.png" alt="itsmnthn" width="112" height="112" loading="eager"
-          class="size-28 border-3 border-white_smoke rounded-full" />
+        <NuxtImg
+          src="/itsmnthn.png"
+          alt="itsmnthn"
+          width="112"
+          height="112"
+          loading="eager"
+          class="size-28 border-3 border-white_smoke rounded-full"
+        />
         <!-- <p
           class="absolute left-2/3 -rotate-12 -skew-12 i-flex-ic gap-2 rounded-full text-xs btn btn-secondary-2 px-4 py-1.5">
           itsmnthn
@@ -14,7 +20,8 @@
       </div>
 
       <h1
-        class="mx-auto mt-5 text-balance font-black font-heading text-3xl xs:text-4xl leading-tight tracking-tight md:text-5xl">
+        class="mx-auto mt-5 text-balance font-black font-heading text-3xl xs:text-4xl leading-tight tracking-tight md:text-5xl"
+      >
         <span class="block"> Buidling products </span>
         <span class="block text-zinc-900/80"> for web, backend & </span>
 

@@ -11,7 +11,10 @@ export const COLORS = [
   "#22C55E",
   "#6366F1",
 
+  // TODO: shift comment start here after adding blog to use the color for the blog card rest is commented to reduce the size of the build
+
   // Extended colors
+  /**
   "#de1212",
   "#12aede",
   "#de7112",
@@ -372,4 +375,5 @@ export const COLORS = [
   "#42f076",
   "#f04293",
   "#42f0c7",
+  */
 ];
