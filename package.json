@@ -28,6 +28,7 @@
   "devDependencies": {
     "@iconify-json/lucide": "catalog:icons",
     "@iconify-json/mdi": "catalog:icons",
+    "@iconify-json/simple-icons": "catalog:icons",
     "@iconify-json/streamline-freehand": "catalog:icons",
     "@tailwindcss/vite": "catalog:styles",
     "better-sqlite3": "catalog:nuxt",

@@ -1,56 +1,60 @@
 # https://github.com/actions/deploy-pages#usage
 name: Deploy to GitHub Pages
+
+# release by pushing a version tag, e.g. `git tag v1.2.0 && git push origin v1.2.0`
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
+    tags:
+      - "v*"
+
+# least privilege by default; the deploy job opts into what Pages needs
+permissions:
+  contents: read
+
+# one deployment at a time; let an in-flight deploy finish instead of cancelling it
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      NUXT_PUBLIC_GA_MEASUREMENT_ID: ${{ vars.NUXT_PUBLIC_GA_MEASUREMENT_ID }} # or secrets.*
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - run: corepack enable
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        # with:
-        # Optional: specify a pnpm version to use for consistency with local development
-        # version: 10
-
-      - name: Use Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          # Specify Node.js version, e.g., 24.x, or use a matrix
-          node-version: "24"
-          # This automatically handles caching of pnpm dependencies
-          cache: "pnpm"
+          persist-credentials: false
 
-      # Pick your own package manager and build script
-      - run: pnpm install
-      - run: npx nuxt build --preset github_pages
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      # installs pnpm from package.json#packageManager plus Node, then runs a frozen `pnpm install`
+      - uses: pnpm/setup@52b80fdb2795ea4948978d5a60f661bdd6fb2bf9 # v3.1.2
+        with:
+          runtime: node@26
+          cache: true
+          require-lockfile: true
+
+      - run: pnpm fmt:check
+      - run: pnpm lint
+
+      - run: pnpm exec nuxt build --preset github_pages
+        env:
+          NUXT_PUBLIC_GA_MEASUREMENT_ID: ${{ vars.NUXT_PUBLIC_GA_MEASUREMENT_ID }}
+
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: ./.output/public
 
-  # Deployment job
   deploy:
-    # Add a dependency to the build job
     needs: build
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       pages: write # to deploy to Pages
       id-token: write # to verify the deployment originates from an appropriate source
-    # Deploy to the github_pages environment
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    # Specify runner + deployment step
-    runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

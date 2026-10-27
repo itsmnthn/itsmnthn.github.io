@@ -180,6 +180,9 @@ catalogs:
     '@iconify-json/mdi':
       specifier: 1.2.3
       version: 1.2.3
+    '@iconify-json/simple-icons':
+      specifier: 1.2.101
+      version: 1.2.101
     '@iconify-json/streamline-freehand':
       specifier: 1.2.1
       version: 1.2.1
@@ -268,6 +271,9 @@ importers:
       '@iconify-json/mdi':
         specifier: catalog:icons
         version: 1.2.3
+      '@iconify-json/simple-icons':
+        specifier: catalog:icons
+        version: 1.2.101
       '@iconify-json/streamline-freehand':
         specifier: catalog:icons
         version: 1.2.1
@@ -686,6 +692,9 @@ packages:
 
   '@iconify-json/mdi@1.2.3':
     resolution: {integrity: sha512-O3cLwbDOK7NNDf2ihaQOH5F9JglnulNDFV7WprU2dSoZu3h3cWH//h74uQAB87brHmvFVxIOkuBX2sZSzYhScg==}
+
+  '@iconify-json/simple-icons@1.2.101':
+    resolution: {integrity: sha512-MXJkMZDancJ/9I+Bgdthi9kXvn3AwWStxoTHwEPwAFQ9kMLBASO1BSstg52fNtjXeizm1Wi91R+QnWxNGkWHPQ==}
 
   '@iconify-json/streamline-freehand@1.2.1':
     resolution: {integrity: sha512-3Pq1cEsAtSkilrbCM9KzcVFuET+XD/WhSOOEpOzD2nUq8t3D8XB/klBQ2emu6SYv7FUnszhTrfdinYWaDFQbKw==}
@@ -6610,6 +6619,10 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify-json/mdi@1.2.3':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/simple-icons@1.2.101':
     dependencies:
       '@iconify/types': 2.0.0
 
