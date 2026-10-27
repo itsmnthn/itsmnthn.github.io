@@ -1,7 +1,4 @@
 {
-  // typescript
-  "typescript.experimental.useTsgo": true,
-
   // editor
   "editor.defaultFormatter": "oxc.oxc-vscode",
   "editor.formatOnSave": true,

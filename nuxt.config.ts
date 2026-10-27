@@ -1,13 +1,15 @@
 import tailwindcss from "@tailwindcss/vite";
+import { defineNuxtConfig } from "nuxt/config";
 
-const gaMeasurementId = import.meta.env.NUXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
+const gaMeasurementId = process.env.NUXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
 
-  future: {
-    compatibilityVersion: 5,
+  experimental: {
+    // auto-import nitro utils (useRuntimeConfig, etc.) for modules like @nuxt/content on nuxt 5
+    nitroAutoImports: true,
   },
 
   features: {
@@ -16,20 +18,20 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/main.css"],
 
-  modules: [
-    "@nuxt/content",
-    "@nuxt/fonts",
-    "@nuxt/hints",
-    "@nuxt/icon",
-    "@nuxt/image",
-    "nuxt-gtag",
-    "@nuxtjs/seo",
-  ],
+  modules: ["@nuxt/content", "@nuxt/fonts", "@nuxt/icon", "@nuxt/image", "@nuxt/scripts", "@nuxtjs/seo"],
 
-  gtag: {
-    enabled: Boolean(gaMeasurementId),
-    id: gaMeasurementId,
-    initMode: "manual",
+  scripts: {
+    defaultScriptOptions: {
+      warmupStrategy: false,
+    },
+    registry: gaMeasurementId
+      ? {
+          googleAnalytics: {
+            id: gaMeasurementId,
+            trigger: { idleTimeout: 3000 },
+          },
+        }
+      : {},
   },
 
   site: {
@@ -46,9 +48,10 @@ export default defineNuxtConfig({
     ],
   },
 
-  ogImage: {
-    enabled: false,
-  },
+  ogImage: { enabled: false },
+
+  aiReady: { enabled: false },
+  skewProtection: { enabled: false },
 
   sitemap: {
     exclude: ["/blog", "/blog/**"],
@@ -76,14 +79,14 @@ export default defineNuxtConfig({
       markdown: true,
       json: true,
     },
+    // uses the nuxt server $fetch, which isn't available on nuxt 5
+    runOnBuild: false,
   },
 
   // GitHub Pages serves static assets with platform-managed cache headers.
   // routeRules.headers/publicAssets maxAge changes here won't control production TTL.
-  nitro: {
-    prerender: {
-      routes: ["/", "/sitemap.xml", "/robots.txt"],
-    },
+  prerender: {
+    routes: ["/", "/sitemap.xml", "/robots.txt"],
   },
 
   vite: {

@@ -1,5 +1,44 @@
-onlyBuiltDependencies:
-  - "@parcel/watcher"
-  - better-sqlite3
-  - esbuild
-  - sharp
+# nightly builds are newer than the default minimumReleaseAge, so allow them explicitly
+minimumReleaseAgeExclude:
+  - "@nuxt/kit-nightly@5.0.0-2610242044-194b1fe"
+  - "@nuxt/nitro-server-nightly@5.0.0-2610242044-194b1fe"
+  - "@nuxt/schema-nightly@5.0.0-2610242044-194b1fe"
+  - "@nuxt/vite-builder-nightly@5.0.0-2610242044-194b1fe"
+  - "@nuxt/vite-server-nightly@5.0.0-2610242044-194b1fe"
+  - nuxt-nightly@5.0.0-2610242044-194b1fe
+
+catalogs:
+  nuxt:
+    nuxt: npm:nuxt-nightly@5.0.0-2610242044-194b1fe
+    better-sqlite3: 13.0.3
+  modules:
+    "@nuxt/content": 3.16.2
+    "@nuxt/fonts": 1.2.0
+    "@nuxt/hints": 1.1.5
+    "@nuxt/icon": 2.6.1
+    "@nuxt/image": 2.2.0
+    "@nuxt/scripts": 1.3.12
+    "@nuxtjs/seo": 6.0.1
+  # not used directly, but needed by modules at build time (content/nitro storage)
+  external:
+    chokidar: ^6.0.0
+    lru-cache: 11.5.3
+    remark-emoji: 5.0.2
+  styles:
+    "@tailwindcss/vite": 4.3.3
+    tailwindcss: 4.3.3
+  icons:
+    "@iconify-json/lucide": 1.2.147
+    "@iconify-json/mdi": 1.2.3
+    "@iconify-json/streamline-freehand": 1.2.1
+  tooling:
+    oxfmt: 0.74.0
+    oxlint: 1.89.0
+    oxlint-tsgolint: 7.0.2005
+    typescript: latest
+
+allowBuilds:
+  "@parcel/watcher": true
+  better-sqlite3: true
+  esbuild: true
+  sharp: true
