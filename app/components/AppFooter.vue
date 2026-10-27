@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { LINKEDIN_URL, X_URL } from "~/utils/constants";
+
 const currentYear = new Date().getFullYear();
 </script>
 
@@ -10,15 +12,15 @@ const currentYear = new Date().getFullYear();
       <span class="font-medium text-primary">© {{ currentYear }}</span>
       <span class="h-3 w-px bg-primary/35" aria-hidden="true" />
       <a
-        href="https://twitter.com/itsmnthn"
+        :href="X_URL"
         target="_blank"
         rel="noopener noreferrer"
         class="rounded-full px-2 py-1 transition-colors hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 dark:hover:text-primary"
       >
-        Twitter
+        X
       </a>
       <a
-        href="https://www.linkedin.com/in/itsmnthn"
+        :href="LINKEDIN_URL"
         target="_blank"
         rel="noopener noreferrer"
         class="rounded-full px-2 py-1 transition-colors hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 dark:hover:text-primary"

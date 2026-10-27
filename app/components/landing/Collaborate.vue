@@ -11,9 +11,9 @@ const socialLinks = [
     btnClass: "btn btn-secondary",
   },
   {
-    name: "Twitter",
+    name: "X",
     url: X_URL,
-    icon: "mdi:twitter",
+    icon: "simple-icons:x",
     btnClass: "btn btn-secondary-2",
   },
 ];

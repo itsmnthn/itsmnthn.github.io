@@ -35,7 +35,9 @@ const yearsOfExperience = getYearsOfExperience();
         <span class="block text-zinc-900/70"> blockchain </span>
       </h1>
 
-      <p class="mx-auto my-4 text-sm sm:text-base text-zinc-600 mb-7">{{ yearsOfExperience }}+ years shipping products in production</p>
+      <p class="mx-auto my-4 text-sm sm:text-base text-zinc-600 mb-7">
+        {{ yearsOfExperience }}+ years shipping products in production
+      </p>
 
       <NuxtLink to="/blog" class="btn btn-secondary px-6 py-3 rounded-full font-semibold i-flex-ic gap-2 mt-4">
         Latest Notes
