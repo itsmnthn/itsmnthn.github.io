@@ -1,3 +1,10 @@
+<script setup lang="ts">
+// static share image; production log and resume pages generate theirs with defineOgImage
+useSeoMeta({
+  ogImage: { url: "/itsmnthn-meta.png", width: 1200, height: 630, type: "image/png" },
+});
+</script>
+
 <template>
   <section class="relative mx-auto w-full max-w-[1240px] pb-2 pt-1 font-body text-zinc-900 md:pb-2.5 md:pt-2">
     <LandingHero class="relative z-3 rounded-[3rem] md:rounded-[5rem]" />

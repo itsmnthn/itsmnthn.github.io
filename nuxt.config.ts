@@ -54,8 +54,9 @@ export default defineNuxtConfig({
     ],
   },
 
-  // templates in app/components/OgImage, rendered while prerendering; there's no server on GitHub Pages
-  ogImage: { zeroRuntime: true, defaults: { height: 630 } },
+  // templates in app/components/OgImage, rendered while prerendering; there's no server on GitHub Pages.
+  // og:image only, X falls back to it, so no twitter:image
+  ogImage: { zeroRuntime: true, includeTwitter: false, defaults: { height: 630 } },
 
   // GitHub Pages has no /api/_nuxt_icon, so bundle every used icon from the local @iconify-json packages
   // instead of falling back to api.iconify.design
