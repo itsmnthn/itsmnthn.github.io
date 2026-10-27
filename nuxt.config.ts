@@ -12,10 +12,6 @@ export default defineNuxtConfig({
     nitroAutoImports: true,
   },
 
-  features: {
-    inlineStyles: true,
-  },
-
   css: ["~/assets/css/main.css"],
 
   // the site is light only, so code blocks use one light theme and no dark variant css
