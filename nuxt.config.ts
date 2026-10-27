@@ -100,6 +100,10 @@ export default defineNuxtConfig({
     routes: ["/", "/production-logs", "/resume", "/sitemap.xml", "/robots.txt"],
   },
 
+  nitro: {
+    prerender: { autoSubfolderIndex: false },
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },
