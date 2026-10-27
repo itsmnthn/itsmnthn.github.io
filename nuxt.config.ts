@@ -5,7 +5,7 @@ const gaMeasurementId = process.env.NUXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: "2024-04-03",
+  compatibilityDate: "2026-10-27",
 
   experimental: {
     // auto-import nitro utils (useRuntimeConfig, etc.) for modules like @nuxt/content on nuxt 5
@@ -53,27 +53,19 @@ export default defineNuxtConfig({
   aiReady: { enabled: false },
   skewProtection: { enabled: false },
 
-  sitemap: {
-    exclude: ["/blog", "/blog/**"],
-  },
-
-  robots: {
-    disallow: ["/blog", "/blog/**"],
-  },
-
   schemaOrg: {
     defaults: true,
     identity: {
       "@type": "Person",
       name: "itsmnthn",
-      url: "https://itsmnthn.dev",
-      image: "https://itsmnthn.dev/itsmnthn.png",
+      url: "/",
+      image: "/itsmnthn.png",
       sameAs: ["https://www.linkedin.com/in/itsmnthn", "https://x.com/itsmnthn", "https://github.com/itsmnthn"],
     },
   },
 
   linkChecker: {
-    excludeLinks: ["/_**", "/blog/**"],
+    excludeLinks: ["/_**"],
     report: {
       html: true,
       markdown: true,
@@ -86,7 +78,7 @@ export default defineNuxtConfig({
   // GitHub Pages serves static assets with platform-managed cache headers.
   // routeRules.headers/publicAssets maxAge changes here won't control production TTL.
   prerender: {
-    routes: ["/", "/sitemap.xml", "/robots.txt"],
+    routes: ["/", "/blog", "/resume", "/sitemap.xml", "/robots.txt"],
   },
 
   vite: {

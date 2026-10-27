@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { SITE_URL } from "~/utils/constants";
 import "~/assets/css/blog.css";
 
 definePageMeta({
   layout: "blog",
-  robots: false,
 });
 
 const route = useRoute();
+// static hosts (GitHub Pages) serve /blog/post/ with a trailing slash; content paths have none
+const path = route.path.replace(/\/+$/, "") || "/";
 
 const formatDate = (value: string) => {
   return new Date(`${value}T00:00:00`).toLocaleDateString("en-US", {
@@ -17,16 +17,15 @@ const formatDate = (value: string) => {
   });
 };
 
-const { data: page } = await useAsyncData(`page-${route.path}`, () => {
-  return queryCollection("blog").path(route.path).first();
+const { data: page } = await useAsyncData(`page-${path}`, () => {
+  return queryCollection("blog").path(path).first();
 });
 
 if (!page.value || page.value.draft === true || page.value.published === false) {
   throw createError({ statusCode: 404, statusMessage: "Page not found", fatal: true });
 }
 
-const canonicalUrl = page.value.seo?.canonical ?? `${SITE_URL}${route.path}`;
-const staticOgImage = `${SITE_URL}/itsmnthn-meta.png`;
+const canonicalUrl = page.value.seo?.canonical ?? path;
 const datePublished = new Date(`${page.value.date}T00:00:00`).toISOString();
 const dateModified = page.value.updated ? new Date(`${page.value.updated}T00:00:00`).toISOString() : datePublished;
 const authorName = page.value.authors?.[0] ?? "itsmnthn";
@@ -37,44 +36,38 @@ useSchemaOrg([
     description: page.value.seo?.description ?? page.value.description,
     datePublished,
     dateModified,
-    url: canonicalUrl,
-    mainEntityOfPage: canonicalUrl,
     inLanguage: "en-US",
-    image: staticOgImage,
-    articleSection: page.value.categories?.[0],
+    image: "/itsmnthn-meta.png",
+    articleSection: page.value.categories,
     keywords: page.value.seo?.keywords,
     author: {
       "@type": "Person",
       name: authorName,
-      url: SITE_URL,
+      url: "/",
     },
     publisher: {
       "@type": "Person",
       name: "itsmnthn",
-      url: SITE_URL,
-      image: `${SITE_URL}/itsmnthn.png`,
+      url: "/",
+      image: "/itsmnthn.png",
     },
   }),
   defineBreadcrumb({
     itemListElement: [
-      { position: 1, name: "Home", item: SITE_URL },
-      { position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+      { position: 1, name: "Home", item: "/" },
+      { position: 2, name: "Blog", item: "/blog" },
       { position: 3, name: page.value.title, item: canonicalUrl },
     ],
   }),
 ]);
 
+useHead({
+  meta: [{ name: "keywords", content: page.value.seo?.keywords?.join(", ") }],
+});
+
 useSeoMeta({
   title: page.value.seo?.title ?? page.value.title,
   description: page.value.seo?.description ?? page.value.description,
-  keywords: page.value.seo?.keywords?.join(", "),
-  ogTitle: page.value.seo?.title ?? page.value.title,
-  ogDescription: page.value.seo?.description ?? page.value.description,
-  ogImage: staticOgImage,
-  twitterCard: "summary_large_image",
-  twitterTitle: page.value.seo?.title ?? page.value.title,
-  twitterDescription: page.value.seo?.description ?? page.value.description,
-  twitterImage: staticOgImage,
 });
 </script>
 
@@ -128,11 +121,16 @@ useSeoMeta({
   <section
     class="border border-white_smoke bg-white_smoke px-8 py-10 md:px-16 md:py-24 relative z-2 -mt-40 pt-50 md:-mt-36 md:pt-60"
   >
-    <NuxtLink to="/blog" class="btn btn-secondary px-6 py-3 rounded-full font-semibold i-flex-ic gap-2 mt-6">
-      Back to Blog
-      <icon name="lucide:arrow-left" class="size-7" />
-    </NuxtLink>
+    <div class="mx-auto max-w-3xl">
+      <NuxtLink
+        to="/blog"
+        class="group i-flex-ic gap-1.5 text-sm font-semibold text-zinc-600 transition-colors hover:text-zinc-900"
+      >
+        <icon name="lucide:arrow-left" class="size-4 transition-transform group-hover:-translate-x-0.5" />
+        Back to Blog
+      </NuxtLink>
 
-    <ContentRenderer v-if="page" :value="page" class="blog-markdown" />
+      <ContentRenderer v-if="page" :value="page" class="blog-markdown mt-6" />
+    </div>
   </section>
 </template>

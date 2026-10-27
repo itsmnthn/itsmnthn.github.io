@@ -11,8 +11,10 @@
   --breakpoint-xs: 30rem;
 }
 
-html {
-  background-color: var(--color-gray_alabaster);
+@layer base {
+  html {
+    background-color: var(--color-gray_alabaster);
+  }
 }
 
 .blog-card-number {

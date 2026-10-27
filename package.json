@@ -7,6 +7,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "resume:pdf": "node scripts/resume-pdf.mjs",
     "lint": "oxlint --type-aware",
     "lint:fix": "oxlint --type-aware --fix",
     "fmt": "oxfmt",

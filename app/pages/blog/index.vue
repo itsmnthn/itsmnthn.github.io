@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import { SITE_URL } from "~/utils/constants";
-
 definePageMeta({
   layout: undefined,
-  robots: false,
 });
 
 const { data: posts } = await useAsyncData(
@@ -25,10 +22,8 @@ const { data: posts } = await useAsyncData(
   },
 );
 
-const staticOgImage = `${SITE_URL}/itsmnthn-meta.png`;
-
 const blogItemElements = (posts.value ?? []).flatMap((post, index) => {
-  const postUrl = post.seo?.canonical ?? (typeof post.path === "string" ? `${SITE_URL}${post.path}` : undefined);
+  const postUrl = post.seo?.canonical ?? post.path;
   if (!postUrl) {
     return [];
   }
@@ -50,8 +45,8 @@ useSchemaOrg([
   }),
   defineBreadcrumb({
     itemListElement: [
-      { position: 1, name: "Home", item: SITE_URL },
-      { position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+      { position: 1, name: "Home", item: "/" },
+      { position: 2, name: "Blog", item: "/blog" },
     ],
   }),
 ]);
@@ -59,9 +54,6 @@ useSchemaOrg([
 useSeoMeta({
   title: "The Production Log",
   description: "A collection of insights gathered from the front lines of product development.",
-  ogImage: staticOgImage,
-  twitterImage: staticOgImage,
-  twitterCard: "summary_large_image",
 });
 </script>
 

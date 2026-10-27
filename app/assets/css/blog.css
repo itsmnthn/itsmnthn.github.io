@@ -1,5 +1,8 @@
 @reference "./main.css";
 
+/* this file can load before main.css; pin tailwind's layer order so `components` doesn't end up below `base` */
+@layer theme, base, components, utilities;
+
 @layer components {
   .blog-markdown {
     @apply mt-8 text-zinc-800;
@@ -39,6 +42,11 @@
     @variant hover {
       @apply text-zinc-950 decoration-zinc-950;
     }
+  }
+
+  /* headings are wrapped in anchor links by @nuxt/content */
+  .blog-markdown :is(h1, h2, h3, h4, h5, h6) a {
+    @apply text-inherit no-underline;
   }
 
   .blog-markdown ul {
