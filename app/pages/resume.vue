@@ -128,6 +128,7 @@ useSeoMeta({
   title: "Manthankumar Satani — Resume",
   description: `Resume of Manthankumar Satani (itsmnthn): full-stack engineer with ${yearsOfExperience}+ years across DeFi, web and SaaS.`,
 });
+defineOgImage("Resume", { yearsOfExperience }, { alt: "Manthankumar Satani, Full-Stack Engineer & Product Builder" });
 </script>
 
 <template>

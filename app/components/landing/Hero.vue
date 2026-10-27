@@ -39,8 +39,11 @@ const yearsOfExperience = getYearsOfExperience();
         {{ yearsOfExperience }}+ years shipping products in production
       </p>
 
-      <NuxtLink to="/blog" class="btn btn-secondary px-6 py-3 rounded-full font-semibold i-flex-ic gap-2 mt-4">
-        Latest Notes
+      <NuxtLink
+        to="/production-logs"
+        class="btn btn-secondary px-6 py-3 rounded-full font-semibold i-flex-ic gap-2 mt-4"
+      >
+        Latest Logs
         <icon name="lucide:arrow-up-right" class="size-7" />
       </NuxtLink>
     </div>

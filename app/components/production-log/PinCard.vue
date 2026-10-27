@@ -1,6 +1,7 @@
 <script setup lang="ts">
-interface BlogPost {
+interface ProductionLog {
   id: string;
+  stem: string;
   path: string;
   title: string;
   description: string;
@@ -9,17 +10,8 @@ interface BlogPost {
 }
 
 const props = defineProps<{
-  post: BlogPost;
-  index: number;
+  post: ProductionLog;
 }>();
-
-const formatDate = (value: string) => {
-  return new Date(`${value}T00:00:00`).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-};
 
 const tiltForPost = (key: string) => {
   let hash = 2166136261;
@@ -35,64 +27,17 @@ const tiltForPost = (key: string) => {
   return Number((sign * magnitude).toFixed(2));
 };
 
-const number = computed(() => String(props.index + 1).padStart(2, "0"));
-const primary = computed(() => COLORS[props.index % COLORS.length] ?? "#5956e9");
+const logNumber = computed(() => getLogNumber(props.post.stem));
+const number = computed(() => formatLogNumber(logNumber.value));
+const primary = computed(() => getLogAccent(logNumber.value));
 const tint = computed(() => `${primary.value}1A`);
-const dateText = computed(() => formatDate(props.post.date));
+const dateText = computed(() => formatLogDate(props.post.date));
 const tags = computed(() => props.post.categories ?? []);
-const tilt = computed(() => tiltForPost(`${props.post.id}:${props.index}`));
+const tilt = computed(() => tiltForPost(props.post.id));
 
 const linkStyle = computed(() => ({
   transform: `rotate(${tilt.value}deg)`,
 }));
-
-const hexToRgb = (hex: string) => {
-  const normalized = hex.replace("#", "");
-  const value =
-    normalized.length === 3
-      ? normalized
-          .split("")
-          .map((part) => `${part}${part}`)
-          .join("")
-      : normalized;
-
-  const r = Number.parseInt(value.slice(0, 2), 16);
-  const g = Number.parseInt(value.slice(2, 4), 16);
-  const b = Number.parseInt(value.slice(4, 6), 16);
-
-  if (Number.isNaN(r) || Number.isNaN(g) || Number.isNaN(b)) {
-    return { r: 255, g: 90, b: 80 };
-  }
-
-  return { r, g, b };
-};
-
-const hexToHue = (hex: string) => {
-  const { r, g, b } = hexToRgb(hex);
-  const rn = r / 255;
-  const gn = g / 255;
-  const bn = b / 255;
-  const max = Math.max(rn, gn, bn);
-  const min = Math.min(rn, gn, bn);
-  const delta = max - min;
-
-  if (delta === 0) {
-    return 0;
-  }
-
-  let hue = 0;
-
-  if (max === rn) {
-    hue = ((gn - bn) / delta) % 6;
-  } else if (max === gn) {
-    hue = (bn - rn) / delta + 2;
-  } else {
-    hue = (rn - gn) / delta + 4;
-  }
-
-  const degrees = hue * 60;
-  return Math.round(degrees < 0 ? degrees + 360 : degrees);
-};
 
 const noteWrapperStyle = computed(() => {
   const { r, g, b } = hexToRgb(primary.value);
@@ -143,7 +88,7 @@ const pinImageStyle = computed(() => {
 
     <div class="rounded-[1.35rem] p-[1.25px]" :style="noteWrapperStyle">
       <article class="rounded-[1.27rem] px-4 py-4" :style="noteStyle">
-        <p class="blog-card-number" :style="{ color: primary }">
+        <p class="log-card-number" :style="{ color: primary }">
           {{ number }}
         </p>
         <h2 class="mt-2 text-base font-semibold leading-tight tracking-tight text-zinc-900">

@@ -4,10 +4,10 @@ definePageMeta({
 });
 
 const { data: posts } = await useAsyncData(
-  "blog-index-posts",
+  "production-logs",
   async () => {
     try {
-      return await queryCollection("blog")
+      return await queryCollection("productionLogs")
         .where("draft", "=", false)
         .where("published", "=", true)
         .order("date", "DESC")
@@ -22,7 +22,7 @@ const { data: posts } = await useAsyncData(
   },
 );
 
-const blogItemElements = (posts.value ?? []).flatMap((post, index) => {
+const logItemElements = (posts.value ?? []).flatMap((post, index) => {
   const postUrl = post.seo?.canonical ?? post.path;
   if (!postUrl) {
     return [];
@@ -40,13 +40,13 @@ const blogItemElements = (posts.value ?? []).flatMap((post, index) => {
 useSchemaOrg([
   defineItemList({
     name: "The Production Log",
-    numberOfItems: blogItemElements.length,
-    itemListElement: blogItemElements,
+    numberOfItems: logItemElements.length,
+    itemListElement: logItemElements,
   }),
   defineBreadcrumb({
     itemListElement: [
       { position: 1, name: "Home", item: "/" },
-      { position: 2, name: "Blog", item: "/blog" },
+      { position: 2, name: "Production Logs", item: "/production-logs" },
     ],
   }),
 ]);
@@ -55,6 +55,22 @@ useSeoMeta({
   title: "The Production Log",
   description: "A collection of insights gathered from the front lines of product development.",
 });
+
+defineOgImage(
+  "ProductionLogs",
+  {
+    logs: (posts.value ?? []).slice(0, 3).map((post) => {
+      const number = getLogNumber(post.stem);
+      return {
+        title: post.title,
+        date: formatLogDate(post.date),
+        number: formatLogNumber(number),
+        accent: getLogAccent(number),
+      };
+    }),
+  },
+  { alt: "The Production Log by itsmnthn" },
+);
 </script>
 
 <template>
@@ -96,7 +112,7 @@ useSeoMeta({
           </p>
 
           <NuxtLink
-            to="/blog/who-am-i"
+            to="/production-logs/who-am-i"
             class="btn btn-secondary px-6 py-3 rounded-full font-semibold i-flex-ic gap-2 mt-4"
           >
             Who am I ?
@@ -111,7 +127,7 @@ useSeoMeta({
           <ul class="relative z-20 grid grid-cols-2 gap-x-5 gap-y-12 sm:gap-x-7 sm:gap-y-14 lg:gap-x-8 lg:gap-y-16">
             <li v-for="(post, index) in posts" :key="post.id" class="flex items-start justify-center">
               <div class="w-fit">
-                <BlogPinCard :post="post" :index="index" class="w-[clamp(10.75rem,44vw,19rem)] min-w-43 max-h-128" />
+                <ProductionLogPinCard :post="post" class="w-[clamp(10.75rem,44vw,19rem)] min-w-43 max-h-128" />
               </div>
             </li>
           </ul>

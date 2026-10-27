@@ -1,3 +1,51 @@
+export const hexToRgb = (hex: string) => {
+  const normalized = hex.replace("#", "");
+  const value =
+    normalized.length === 3
+      ? normalized
+          .split("")
+          .map((part) => `${part}${part}`)
+          .join("")
+      : normalized;
+
+  const r = Number.parseInt(value.slice(0, 2), 16);
+  const g = Number.parseInt(value.slice(2, 4), 16);
+  const b = Number.parseInt(value.slice(4, 6), 16);
+
+  if (Number.isNaN(r) || Number.isNaN(g) || Number.isNaN(b)) {
+    return { r: 255, g: 90, b: 80 };
+  }
+
+  return { r, g, b };
+};
+
+export const hexToHue = (hex: string) => {
+  const { r, g, b } = hexToRgb(hex);
+  const rn = r / 255;
+  const gn = g / 255;
+  const bn = b / 255;
+  const max = Math.max(rn, gn, bn);
+  const min = Math.min(rn, gn, bn);
+  const delta = max - min;
+
+  if (delta === 0) {
+    return 0;
+  }
+
+  let hue = 0;
+
+  if (max === rn) {
+    hue = ((gn - bn) / delta) % 6;
+  } else if (max === gn) {
+    hue = (bn - rn) / delta + 2;
+  } else {
+    hue = (rn - gn) / delta + 4;
+  }
+
+  const degrees = hue * 60;
+  return Math.round(degrees < 0 ? degrees + 360 : degrees);
+};
+
 export const COLORS = [
   // Reference colors
   "#FF7A59",
@@ -11,7 +59,7 @@ export const COLORS = [
   "#22C55E",
   "#6366F1",
 
-  // TODO: shift comment start here after adding blog to use the color for the blog card rest is commented to reduce the size of the build
+  // TODO: shift comment start here after adding production logs to use the color for the log card rest is commented to reduce the size of the build
 
   // Extended colors
   /**

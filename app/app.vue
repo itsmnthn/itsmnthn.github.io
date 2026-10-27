@@ -19,8 +19,9 @@ useHead({
 useSeoMeta({
   title: "Manthankumar Satani · Full-Stack Engineer",
   description: siteDescription,
-  // site-wide default share image; nuxt-og-image is disabled so nothing else sets it
+  // home page share image; production log and resume pages generate theirs with defineOgImage
   ogImage: "/itsmnthn-meta.png",
+  twitterCard: "summary_large_image",
 });
 </script>
 

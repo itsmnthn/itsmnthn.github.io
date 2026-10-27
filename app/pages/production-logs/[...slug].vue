@@ -1,24 +1,16 @@
 <script setup lang="ts">
-import "~/assets/css/blog.css";
+import "~/assets/css/production-log.css";
 
 definePageMeta({
-  layout: "blog",
+  layout: "production-log",
 });
 
 const route = useRoute();
-// static hosts (GitHub Pages) serve /blog/post/ with a trailing slash; content paths have none
+// static hosts (GitHub Pages) serve /production-logs/post/ with a trailing slash; content paths have none
 const path = route.path.replace(/\/+$/, "") || "/";
 
-const formatDate = (value: string) => {
-  return new Date(`${value}T00:00:00`).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-};
-
 const { data: page } = await useAsyncData(`page-${path}`, () => {
-  return queryCollection("blog").path(path).first();
+  return queryCollection("productionLogs").path(path).first();
 });
 
 if (!page.value || page.value.draft === true || page.value.published === false) {
@@ -37,7 +29,7 @@ useSchemaOrg([
     datePublished,
     dateModified,
     inLanguage: "en-US",
-    image: "/itsmnthn-meta.png",
+    image: page.value.seo?.image,
     articleSection: page.value.categories,
     keywords: page.value.seo?.keywords,
     author: {
@@ -55,7 +47,7 @@ useSchemaOrg([
   defineBreadcrumb({
     itemListElement: [
       { position: 1, name: "Home", item: "/" },
-      { position: 2, name: "Blog", item: "/blog" },
+      { position: 2, name: "Production Logs", item: "/production-logs" },
       { position: 3, name: page.value.title, item: canonicalUrl },
     ],
   }),
@@ -68,7 +60,27 @@ useHead({
 useSeoMeta({
   title: page.value.seo?.title ?? page.value.title,
   description: page.value.seo?.description ?? page.value.description,
+  ogType: "article",
 });
+
+// `seo.image` in frontmatter replaces the generated image
+if (page.value.seo?.image) {
+  useSeoMeta({ ogImage: page.value.seo.image, ogImageAlt: page.value.title });
+} else {
+  const logNumber = getLogNumber(page.value.stem);
+  defineOgImage(
+    "ProductionLog",
+    {
+      title: page.value.title,
+      description: page.value.description,
+      date: formatLogDate(page.value.date),
+      categories: page.value.categories,
+      number: formatLogNumber(logNumber),
+      accent: getLogAccent(logNumber),
+    },
+    { alt: page.value.title },
+  );
+}
 </script>
 
 <template>
@@ -103,7 +115,7 @@ useSeoMeta({
 
       <div class="mt-4">
         <div v-if="page?.date" class="text-sm text-zinc-500">
-          {{ formatDate(page.date) }}
+          {{ formatLogDate(page.date) }}
         </div>
         <div v-if="page?.categories?.length" class="flex flex-wrap items-center justify-center gap-2 mt-2">
           <span
@@ -123,14 +135,14 @@ useSeoMeta({
   >
     <div class="mx-auto max-w-3xl">
       <NuxtLink
-        to="/blog"
+        to="/production-logs"
         class="group i-flex-ic gap-1.5 text-sm font-semibold text-zinc-600 transition-colors hover:text-zinc-900"
       >
         <icon name="lucide:arrow-left" class="size-4 transition-transform group-hover:-translate-x-0.5" />
-        Back to Blog
+        Back to Production Logs
       </NuxtLink>
 
-      <ContentRenderer v-if="page" :value="page" class="blog-markdown mt-6" />
+      <ContentRenderer v-if="page" :value="page" class="log-markdown mt-6" />
     </div>
   </section>
 </template>

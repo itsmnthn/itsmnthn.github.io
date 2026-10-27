@@ -2,12 +2,12 @@
 const route = useRoute();
 const isCompact = ref(false);
 
-const isActive = (path: "/" | "/blog") => {
+const isActive = (path: "/" | "/production-logs") => {
   if (path === "/") {
     return route.path === "/";
   }
 
-  return route.path === "/blog" || route.path.startsWith("/blog/");
+  return route.path === "/production-logs" || route.path.startsWith("/production-logs/");
 };
 
 const updateCompactState = () => {
@@ -48,16 +48,16 @@ onBeforeUnmount(() => {
         Home
       </NuxtLink>
       <NuxtLink
-        to="/blog"
+        to="/production-logs"
         :class="[
           'rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60',
           isCompact ? 'px-3 py-1 text-xs' : 'px-4 py-1.5 text-sm',
-          isActive('/blog')
+          isActive('/production-logs')
             ? 'bg-primary text-white'
             : 'text-zinc-700 hover:bg-primary/10 hover:text-primary dark:text-zinc-200 dark:hover:bg-primary/20 dark:hover:text-primary',
         ]"
       >
-        Blog
+        Production Logs
       </NuxtLink>
     </nav>
   </div>

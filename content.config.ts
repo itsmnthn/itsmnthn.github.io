@@ -2,9 +2,10 @@ import { defineCollection, defineContentConfig, z } from "@nuxt/content";
 
 export default defineContentConfig({
   collections: {
-    blog: defineCollection({
+    // files are named `<number>.<slug>.md`, the number is the log's permanent position (see app/utils/production-logs.ts)
+    productionLogs: defineCollection({
       type: "page",
-      source: "blog/*.md",
+      source: "production-logs/*.md",
       schema: z.object({
         title: z.string(),
         description: z.string(),

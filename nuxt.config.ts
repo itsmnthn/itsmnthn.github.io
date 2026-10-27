@@ -45,10 +45,20 @@ export default defineNuxtConfig({
     families: [
       { name: "Sora", provider: "google" },
       { name: "Manrope", provider: "google" },
+      { name: "Pinyon Script", provider: "google" },
     ],
   },
 
-  ogImage: { enabled: false },
+  // templates in app/components/OgImage, rendered while prerendering; there's no server on GitHub Pages
+  ogImage: { zeroRuntime: true, defaults: { height: 630 } },
+
+  // GitHub Pages has no /api/_nuxt_icon, so bundle every used icon from the local @iconify-json packages
+  // instead of falling back to api.iconify.design
+  icon: {
+    provider: "none",
+    fallbackToApi: false,
+    clientBundle: { scan: true },
+  },
 
   aiReady: { enabled: false },
   skewProtection: { enabled: false },
@@ -78,7 +88,7 @@ export default defineNuxtConfig({
   // GitHub Pages serves static assets with platform-managed cache headers.
   // routeRules.headers/publicAssets maxAge changes here won't control production TTL.
   prerender: {
-    routes: ["/", "/blog", "/resume", "/sitemap.xml", "/robots.txt"],
+    routes: ["/", "/production-logs", "/resume", "/sitemap.xml", "/robots.txt"],
   },
 
   vite: {

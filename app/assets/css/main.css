@@ -6,7 +6,10 @@
   --color-white_smoke: #f4f4f3;
   --font-heading: "Sora", "Manrope", sans-serif;
   --font-body: "Manrope", "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
-  --font-script: "Snell Roundhand", "Brush Script MT", "Segoe Script", "Apple Chancery", cursive;
+  /* a web font, so log cards and OG images look the same on every device */
+  --font-script: "Pinyon Script", cursive;
+
+  --radius-5xl: 3.5rem;
 
   --breakpoint-xs: 30rem;
 }
@@ -17,8 +20,8 @@
   }
 }
 
-.blog-card-number {
-  @apply font-script text-3xl italic tracking-wide;
+.log-card-number {
+  @apply font-script text-3xl tracking-wide;
   line-height: 0.92;
 }
 
