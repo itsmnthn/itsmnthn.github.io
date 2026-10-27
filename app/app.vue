@@ -2,8 +2,7 @@
 const siteName = "itsmnthn.dev";
 const siteUrl = "https://itsmnthn.dev";
 const staticOgImage = `${siteUrl}/itsmnthn-meta.png`;
-const siteDescription =
-  "itsmnthn is a fullstack engineer and product builder with 7+ years of experience across DeFi, SaaS, and developer tooling.";
+const siteDescription = `itsmnthn is a fullstack engineer and product builder with ${getYearsOfExperience()}+ years of experience across DeFi, SaaS, and developer tooling.`;
 
 useHead({
   htmlAttrs: {

@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const yearsOfExperience = getYearsOfExperience();
+</script>
+
 <template>
   <section class="border border-white_smoke bg-gray_alabaster px-8 pt-6 pb-12 md:px-16 md:pt-12 md:pb-24">
     <Header />
@@ -31,7 +35,7 @@
         <span class="block text-zinc-900/70"> blockchain </span>
       </h1>
 
-      <p class="mx-auto my-4 text-sm sm:text-base text-zinc-600 mb-7">7+ years shipping products in production</p>
+      <p class="mx-auto my-4 text-sm sm:text-base text-zinc-600 mb-7">{{ yearsOfExperience }}+ years shipping products in production</p>
 
       <NuxtLink to="/" class="btn btn-secondary px-6 py-3 rounded-full font-semibold i-flex-ic gap-2 mt-4">
         Latest Notes
